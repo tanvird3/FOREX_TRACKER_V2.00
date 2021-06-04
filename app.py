@@ -63,6 +63,7 @@ app.layout = html.Div(
                 "display": "inline-block",
                 "verticalAlign": "middle",
                 "paddingBottom": "5px",
+                "paddingLeft": "10px",
             },
         ),
         # the submit button
@@ -246,6 +247,7 @@ def RealTimeCurrencyExchangeRate(n_clicks, n_intervals, from_currency, to_curren
         + to_currency
         + " (Last 100 Time Points)",
         template="plotly",
+        legend=dict(orientation="h", x=1.02, y=1.02, xanchor="right", yanchor="bottom"),
     )
 
     data_bol = [trace_bu, trace_bl, trace_bm, time_p]
@@ -277,6 +279,7 @@ def RealTimeCurrencyExchangeRate(n_clicks, n_intervals, from_currency, to_curren
         + to_currency
         + " (Last 100 Time Points)",
         template="plotly",
+        legend=dict(orientation="h", x=1.02, y=1.02, xanchor="right", yanchor="bottom"),
     )
 
     data_macd = [trace_macd, trace_macdS, trace_macdH]
@@ -294,6 +297,7 @@ def RealTimeCurrencyExchangeRate(n_clicks, n_intervals, from_currency, to_curren
         + to_currency
         + " (Last 100 Time Points)",
         template="plotly",
+        legend=dict(orientation="h", x=1.02, y=1.02, xanchor="right", yanchor="bottom"),
     )
 
     data_rsi = [trace_rsi]
@@ -327,7 +331,6 @@ def RealTimeCurrencyExchangeRate(n_clicks, n_intervals, from_currency, to_curren
 
     # return the outputfig.update_layout(showlegend=True)
     return (fig_candle, fig_bol, fig_rsi, fig_MACD)
-
 
 # launch the app
 if __name__ == "__main__":
