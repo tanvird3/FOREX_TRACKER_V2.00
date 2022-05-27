@@ -20,18 +20,18 @@ curcode_to = code_to["To"].tolist()
 app = dash.Dash(
     __name__,
     meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}],
-    external_stylesheets=[dbc.themes.MINTY],
+    external_stylesheets=[dbc.themes.CYBORG],
 )
 server = app.server
 
 # app layout
 app.layout = html.Div(
     children=[
-        html.H1("Forex Tracker", style={"textAlign": "center"}),
+        html.H3("Forex Tracker", style={"textAlign": "center"}),
         # the from currency dropdown
         html.Div(
             [
-                html.H3("From Currency", style={"paddingRight": "30px"}),
+                html.H5("From Currency", style={"paddingRight": "30px"}),
                 dcc.Dropdown(
                     id="FromCurrency",
                     options=[{"label": i, "value": i} for i in curcode_from],
@@ -50,7 +50,7 @@ app.layout = html.Div(
         # to currency dropdown
         html.Div(
             [
-                html.H3("To Currency"),
+                html.H5("To Currency"),
                 dcc.Dropdown(
                     id="ToCurrency",
                     options=[{"label": i, "value": i} for i in curcode_to],
@@ -79,7 +79,7 @@ app.layout = html.Div(
             style={
                 "display": "inline-block",
                 "verticalAlign": "bottom",
-                "paddingBottom": "5px",
+                "paddingBottom": "7px",
             },
         ),
         # the graphs
@@ -202,7 +202,7 @@ def RealTimeCurrencyExchangeRate(n_clicks, n_intervals, from_currency, to_curren
         + to_currency
         + " (Last 100 Minutes)",
         showlegend=False,
-        template="plotly",
+        template="plotly_dark",
     )
     data_candle = [candleplot, can_tim]
     fig_candle = go.Figure(data=data_candle, layout=layout_candle)
@@ -246,7 +246,7 @@ def RealTimeCurrencyExchangeRate(n_clicks, n_intervals, from_currency, to_curren
         + "/"
         + to_currency
         + " (Last 100 Time Points)",
-        template="plotly",
+        template="plotly_dark",
         legend=dict(orientation="h", x=1.02, y=1.02, xanchor="right", yanchor="bottom"),
     )
 
@@ -278,7 +278,7 @@ def RealTimeCurrencyExchangeRate(n_clicks, n_intervals, from_currency, to_curren
         + "/"
         + to_currency
         + " (Last 100 Time Points)",
-        template="plotly",
+        template="plotly_dark",
         legend=dict(orientation="h", x=1.02, y=1.02, xanchor="right", yanchor="bottom"),
     )
 
@@ -296,7 +296,7 @@ def RealTimeCurrencyExchangeRate(n_clicks, n_intervals, from_currency, to_curren
         + "/"
         + to_currency
         + " (Last 100 Time Points)",
-        template="plotly",
+        template="plotly_dark",
         legend=dict(orientation="h", x=1.02, y=1.02, xanchor="right", yanchor="bottom"),
     )
 
