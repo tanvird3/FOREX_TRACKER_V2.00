@@ -125,6 +125,9 @@ def RealTimeCurrencyExchangeRate(n_clicks, n_intervals, from_currency, to_curren
     # sort the data frame in ascending order as per date and time
     time_data = time_data.sort_index()
 
+    # convert the datetime to Dhaka time
+    time_data.index = time_data.index + pd.Timedelta("10:00:00")
+
     # keep the last 500 data points to calculate the indicators
     # time_data = time_data.iloc[-500:, ]
 
